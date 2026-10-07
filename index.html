@@ -19,7 +19,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(247,241,234,.9);backdrop
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}.filter{background:transparent;border:1px solid var(--line);padding:10px 15px;border-radius:999px;color:#625a56}.filter.active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}
 .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:var(--paper);border-radius:24px;overflow:hidden;transition:.25s;position:relative}.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.card-photo{height:270px;position:relative;overflow:hidden;background:#eee}.card-photo img{width:100%;height:100%;object-fit:cover;transition:.5s}.card:hover .card-photo img{transform:scale(1.035)}.pill{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.85);padding:7px 10px;border-radius:999px;font-size:11px}.heart{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.88);width:36px;height:36px;border-radius:50%;font-size:18px}.card-body{padding:18px}.card h3{font-size:16px;margin:0 0 7px}.meta{color:var(--muted);font-size:12px}.price{font-size:17px;font-weight:700;margin-top:13px}.add{width:100%;margin-top:14px;padding:11px;border-radius:12px;background:#efe3dc;color:var(--ink);font-weight:600}.add:hover{background:#e5d5cc}
 .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.benefit{padding:28px;background:var(--paper);border-radius:24px}.benefit .num{font-family:"Playfair Display";font-size:27px}.benefit h3{font-size:15px;margin:22px 0 8px}.benefit p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
-.story{background:var(--blue);border-radius:34px;padding:54px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story h2{font-family:"Playfair Display";font-size:48px;font-weight:500;margin:12px 0}.story p{color:#657174;line-height:1.8}.story-card{background:rgba(255,255,255,.55);padding:28px;border-radius:24px}.story-card strong{font-size:28px}
+.story{background:var(--blue);border-radius:34px;padding:54px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story h2{font-family:"Playfair Display";serif;font-size:48px;font-weight:500;margin:12px 0}.story p{color:#657174;line-height:1.8}.story-card{background:rgba(255,255,255,.55);padding:28px;border-radius:24px}.story-card strong{font-size:28px}
 footer{padding:52px 0 30px;border-top:1px solid var(--line)}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}.footer-grid h4{margin:0 0 15px}.footer-grid p,.footer-grid a{font-size:13px;color:var(--muted);line-height:1.8;display:block}.copyright{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .cart{position:fixed;right:18px;top:88px;width:min(390px,calc(100% - 36px));max-height:calc(100vh - 108px);background:var(--paper);border-radius:26px;box-shadow:0 25px 80px rgba(40,25,20,.2);z-index:30;padding:24px;display:none;overflow:auto}.cart.open{display:block}.cart-head{display:flex;justify-content:space-between;align-items:center}.cart-item{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}.cart-item img{width:72px;height:62px;object-fit:cover;border-radius:12px}.cart-item small{color:var(--muted)}.cart-total{display:flex;justify-content:space-between;font-weight:700;padding:20px 0}.empty{color:var(--muted);padding:30px 0;text-align:center}
 .mobile-menu{display:none}
@@ -31,8 +31,20 @@ footer{padding:52px 0 30px;border-top:1px solid var(--line)}.footer-grid{display
 <header>
 <div class="container nav">
 <a class="logo" href="#">MALISA</a>
-<nav class="navlinks"><a href="#catalog">Каталог</a><a href="#about">О нас</a><a href="#delivery">Доставка</a><a href="#contacts">Контакты</a></nav>
-<div class="nav-actions"><button class="icon-btn desktop-cart" aria-label="Корзина" onclick="toggleCart()">🛒<span class="badge" id="badge">0</span></button><button class="icon-btn mobile-menu" onclick="document.querySelector('.navlinks').style.display=document.querySelector('.navlinks').style.display==='flex'?'none':'flex'">☰</button></div>
+<nav class="navlinks">
+  <a href="#catalog">Каталог</a>
+  <a href="#about">О нас</a>
+  <a href="#delivery">Доставка</a>
+  <a href="#contacts">Контакты</a>
+</nav>
+<div class="nav-actions">
+  <!-- Быстрый звонок -->
+  <a href="tel:+79131235653" class="icon-btn" aria-label="Позвонить" style="background:#fff;color:#302c2b"><span style="font-size:18px">📞</span></a>
+  <!-- Корзина -->
+  <button class="icon-btn desktop-cart" aria-label="Корзина" onclick="toggleCart()">🛒<span class="badge" id="badge">0</span></button>
+  <!-- Мобильное меню -->
+  <button class="icon-btn mobile-menu" onclick="document.querySelector('.navlinks').style.display=document.querySelector('.navlinks').style.display==='flex'?'none':'flex">☰</button>
+</div>
 </div></header>
 
 <main>
@@ -62,33 +74,6 @@ footer{padding:52px 0 30px;border-top:1px solid var(--line)}.footer-grid{display
 </main>
 
 <footer id="contacts"><div class="container"><div class="footer-grid">
-<div><div class="logo">MALISA</div><p>Мягкая мебель в Новокузнецке.<br>Минимализм, комфорт и уют.</p></div>
-<div><h4>Магазин</h4><a href="#catalog">Каталог</a><a href="#about">О MALISA</a><a href="#delivery">Доставка</a></div>
-<div><h4>Связь</h4><a href="tel:+79000000000">+7 (900) 000-00-00</a><a href="https://t.me/" target="_blank">Telegram</a><a href="https://wa.me/" target="_blank">WhatsApp</a></div>
-<div><h4>Город</h4><p>Новокузнецк<br>Кемеровская область</p></div>
-</div><div class="copyright">© 2026 MALISA. Все права защищены.</div></div></footer>
-
-<aside class="cart" id="cart"><div class="cart-head"><h3>Корзина</h3><button class="icon-btn" onclick="toggleCart()">×</button></div><div id="cartItems"></div><div class="cart-total"><span>Итого</span><span id="total">0 ₽</span></div><button class="btn" style="width:100%" onclick="checkout()">Оформить заказ</button></aside>
-
-<script>
-const products=[
-{id:1,name:"MALISA Cloud",price:69990,type:"straight",tag:"Хит",meta:"Прямой · 230 см",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"},
-{id:2,name:"MALISA Soft",price:74990,type:"corner",tag:"Новинка",meta:"Угловой · 280 см",img:"https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=900&q=80"},
-{id:3,name:"MALISA Comfort",price:89990,type:"folding",tag:"Популярный",meta:"Раскладной · 245 см",img:"https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80"},
-{id:4,name:"MALISA Velvet",price:94990,type:"corner",tag:"Премиум",meta:"Угловой · 300 см",img:"https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=900&q=80"}
-];
-let cart=[];
-function money(n){return n.toLocaleString('ru-RU')+" ₽"}
-function render(list=products){
-document.getElementById('products').innerHTML=list.map(p=>`<article class="card"><div class="card-photo"><img src="${p.img}" alt="${p.name}" loading="lazy"><span class="pill">${p.tag}</span><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button></div><div class="card-body"><h3>${p.name}</h3><div class="meta">${p.meta}</div><div class="price">${money(p.price)}</div><button class="add" onclick="addToCart(${p.id})">Добавить в корзину</button></div></article>`).join('');
-document.getElementById('count').textContent=list.length+" "+(list.length===1?'модель':list.length<5?'модели':'моделей');
-}
-function filterProducts(type,el){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));el.classList.add('active');render(type==='all'?products:products.filter(p=>p.type===type))}
-function addToCart(id){cart.push(products.find(p=>p.id===id));updateCart();document.getElementById('cart').classList.add('open')}
-function removeItem(i){cart.splice(i,1);updateCart()}
-function updateCart(){document.getElementById('badge').textContent=cart.length;let box=document.getElementById('cartItems');if(!cart.length){box.innerHTML='<div class="empty">В корзине пока пусто</div>';document.getElementById('total').textContent='0 ₽';return}box.innerHTML=cart.map((p,i)=>`<div class="cart-item"><img src="${p.img}"><div style="flex:1"><b>${p.name}</b><br><small>${money(p.price)}</small></div><button onclick="removeItem(${i})">×</button></div>`).join('');document.getElementById('total').textContent=money(cart.reduce((s,p)=>s+p.price,0))}
-function toggleCart(){document.getElementById('cart').classList.toggle('open')}
-function checkout(){if(!cart.length){alert('Добавьте диван в корзину.');return}alert('Демо-режим: здесь можно подключить форму заказа, WhatsApp, Telegram или онлайн-оплату.')}
-render();updateCart();
-</script>
-</body></html>
+<div>
+  <div class="logo">MALISA</div>
+  <p>Мягкая мебель в Новокузнецке.<br
